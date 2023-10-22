@@ -5,12 +5,18 @@
 
 <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
 
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+ function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+</script>
+
   </head>
   <body>
 <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DAq000002Oe9d" method="POST">
 
 <input type=hidden name="oid" value="00DAq000002Oe9d">
 <input type=hidden name="retURL" value="http://olibouchard.github.io/">
+<input type=hidden name='captcha_settings' value='{"keyname":"website_lead_form","fallback":"true","orgId":"00D1I000002K0B8","ts":""}'>
 
 <!--  ----------------------------------------------------------------------  -->
 <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
@@ -47,6 +53,8 @@
 <option value="SK">SK</option>
 <option value="YT">YT</option>
 </select><br>
+
+<div class="g-recaptcha" data-sitekey="6LcgQn8UAAAAAGKMEMbE14ZASFDtkGcCkJcDFavC"></div><br>
 
 <input type="submit" name="submit">
 
